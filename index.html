@@ -72,7 +72,6 @@
           auto !important;
       }
       
-      /* Discord Popup Styles */
       .discord-popup-overlay {
         display: none;
         position: fixed;
@@ -317,7 +316,6 @@
   <script protect="" src="js/protect.js"></script>
   <script src="js/star.js"></script>
 
-  <!-- Discord Popup -->
   <div id="discordPopupOverlay" class="discord-popup-overlay" onclick="closeDiscordPopup()">
     <div class="discord-popup" onclick="event.stopPropagation()">
       <div class="discord-popup-content">
@@ -350,7 +348,6 @@
       document.body.style.overflow = '';
     }
     
-    // Close popup on Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeDiscordPopup();
@@ -358,7 +355,6 @@
     });
     
     function copyToClipboard(text, button) {
-        // Create a temporary textarea element to hold the text
         const textarea = document.createElement('textarea');
         textarea.value = text;
         document.body.appendChild(textarea);
@@ -366,7 +362,6 @@
         document.execCommand('copy');
         document.body.removeChild(textarea);
 
-        // Update button to show success
         const originalText = button.innerHTML;
         button.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
         button.style.background = 'rgba(76, 175, 80, 0.3)';
