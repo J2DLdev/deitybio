@@ -275,6 +275,11 @@
                     <span class="Typewriter__wrapper">just a cutiepie</span>
                   </div>
                 </h3>
+                <div id="discord-status" style="margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.7); display: flex; align-items: center; gap: 8px;">
+                  <span id="status-indicator" style="width: 8px; height: 8px; border-radius: 50%; background: #747f8d; display: inline-block;"></span>
+                  <span id="status-text">Offline</span>
+                  <span id="discord-activity" style="margin-left: 5px; font-size: 12px; color: rgba(255, 255, 255, 0.5);"></span>
+                </div>
               </div>
               <div class="userLayout1_socialsWrapper__9yWdO userPage_unfoldStart__cFi88 userPage_unfold__XlZ8v">
     <div class="userPage_userSocials__J9Lve">
@@ -371,6 +376,56 @@
           button.style.background = '';
         }, 2000);
     }
+
+    const DISCORD_ID = '1140569210733469726';
+    
+    function updateDiscordStatus() {
+      fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success && data.data) {
+            const status = data.data.discord_status;
+            const activities = data.data.activities || [];
+            const statusIndicator = document.getElementById('status-indicator');
+            const statusText = document.getElementById('status-text');
+            const activityText = document.getElementById('discord-activity');
+            
+            const statusColors = {
+              online: '#23a55a',
+              idle: '#f0b232',
+              dnd: '#f23f43',
+              offline: '#747f8d'
+            };
+            
+            const statusLabels = {
+              online: 'Online',
+              idle: 'Idle',
+              dnd: 'Do Not Disturb',
+              offline: 'Offline'
+            };
+            
+            statusIndicator.style.background = statusColors[status] || statusColors.offline;
+            statusText.textContent = statusLabels[status] || 'Offline';
+            
+            const spotifyActivity = activities.find(a => a.name === 'Spotify');
+            const gameActivity = activities.find(a => a.type === 0);
+            
+            if (spotifyActivity) {
+              activityText.textContent = `🎵 ${spotifyActivity.details || 'Listening to Spotify'}`;
+            } else if (gameActivity) {
+              activityText.textContent = `🎮 ${gameActivity.name}`;
+            } else {
+              activityText.textContent = '';
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching Discord status:', error);
+        });
+    }
+    
+    updateDiscordStatus();
+    setInterval(updateDiscordStatus, 10000);
 </script>
 
 </body>
