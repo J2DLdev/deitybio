@@ -411,9 +411,9 @@
             const gameActivity = activities.find(a => a.type === 0);
             
             if (spotifyActivity) {
-              activityText.textContent = `🎵 ${spotifyActivity.details || 'Listening to Spotify'}`;
+              activityText.textContent = `Spotify: ${spotifyActivity.details || 'Listening to Spotify'}`;
             } else if (gameActivity) {
-              activityText.textContent = `🎮 ${gameActivity.name}`;
+              activityText.textContent = ` ${gameActivity.name}`;
             } else {
               activityText.textContent = '';
             }
