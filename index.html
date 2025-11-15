@@ -72,102 +72,6 @@
           auto !important;
       }
       
-      .discord-popup-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: transparent;
-        z-index: 10000;
-        animation: fadeIn 0.3s ease;
-      }
-      
-      .discord-popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: transparent;
-        border: none;
-        padding: 15px 20px;
-        z-index: 10001;
-        animation: slideUp 0.3s ease;
-        max-width: 250px;
-        width: auto;
-      }
-      
-      .discord-popup-header {
-        display: none;
-      }
-      
-      .discord-popup-close {
-        display: none;
-      }
-      
-      .discord-popup-content {
-        color: #fff;
-        font-size: 12px;
-      }
-      
-      .discord-info-item {
-        background: transparent;
-        padding: 8px 0;
-        border-radius: 0;
-        margin-bottom: 8px;
-        border: none;
-      }
-      
-      .discord-info-label {
-        font-size: 10px;
-        color: rgba(255, 255, 255, 0.6);
-        margin-bottom: 3px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      
-      .discord-info-value {
-        font-size: 13px;
-        font-weight: 500;
-            color: #fff;
-        word-break: break-all;
-        margin-bottom: 5px;
-      }
-      
-      .discord-copy-btn {
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: rgba(255, 255, 255, 0.8);
-        padding: 4px 8px;
-            border-radius: 4px;
-            cursor: pointer;
-        font-size: 10px;
-        transition: all 0.2s;
-        margin-top: 5px;
-        width: 100%;
-      }
-      
-      .discord-copy-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translate(-50%, -40%);
-        }
-        to {
-          opacity: 1;
-          transform: translate(-50%, -50%);
-        }
-        }
     </style>
 
     <iframe class="fullscreen bg-video" 
@@ -211,7 +115,7 @@
         --volumeBackgroundcolor: rgba(118, 74, 135, 0.2);
         --volumeBorder: 2px solid rgba(118, 74, 135, 0.18);
         --colorUsernameGlow: 0px 0px 16.5px #ffffff48;
-        --usernameEffects: url(images/sparkle_white.gif);
+        --usernameEffects: url(sparkle_white.gif);
         --buttonBackground: rgba(135, 74, 74, 0.22);
         --buttonBorder: 2px solid rgba(118, 74, 135, 0.12);
         --buttonRadius: 12px;
@@ -222,63 +126,68 @@
       ">
       <div class="userPage_mainContainer__D9vBk">
         <div class="userPage_userContainerWrapper__OVz6p">
-          <div class="userPage_userContainer__eymIK userPage_fadeUpStart__fjpAo userPage_fadeUp__ulAPo">
-            <div class="userLayout1_userInformation__GMpFu">
-            <img src="https://media.discordapp.net/attachments/1290098154670260237/1290098242490728512/48114939364fa67c2483d573b9de18c7.gif?ex=670fa85d&amp;amp;is=670e56dd&amp;amp;hm=d1cf8ed07be782b5276b8a4da3d5c7adf48efeb1d82f7fce4d3a44c68141873d&amp;amp;=" alt="User Banner" class="userLayout1_banner__gDnXO">
+          <div class="userPage_userContainer__eymIK userPage_fadeUpStart__fjpAo userPage_fadeUp__ulAPo" style="overflow: visible !important;">
+            <div class="userLayout1_userInformation__GMpFu" style="position: relative; min-height: 150px; overflow: visible !important;">
+            <img id="user-banner" src="i.pinimg.com/originals/ec/60/47/ec6047e888811f61cc4b896a4c3dd22e.gif" alt="User Banner" class="userLayout1_banner__gDnXO" style="width: 100% !important; height: 350px !important; min-height: 350px !important; object-fit: cover !important; object-position: center !important; position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important;">
               <div class="userPage_avatarWrapper__vWt9O">
-                <img src="https://media.discordapp.net/attachments/1290098154670260237/1290098242490728512/48114939364fa67c2483d573b9de18c7.gif?ex=670fa85d&amp;is=670e56dd&amp;hm=d1cf8ed07be782b5276b8a4da3d5c7adf48efeb1d82f7fce4d3a44c68141873d&amp;=" alt="" class="userPage_avatarDecorationLayout2__7R3kh">
-                <img src="cdn.pfps.gg/pfps/9029-black-aesthetic-egirl.png" alt="User Avatar" class="userLayout2_avatar__Pqgcw">
+                <img id="discord-decoration" src="" alt="" class="userPage_avatarDecorationLayout2__7R3kh" style="display: none;">
+                <img id="discord-avatar" src="cdn.pfps.gg/pfps/9029-black-aesthetic-egirl.png" alt="User Avatar" class="userLayout2_avatar__Pqgcw">
               </div>
 
               <div class="userLayout1_userDescription__ZjN4w false">
-                <h1 class="userLayout1_userDescriptionUsername__ynCxB false" style="font-weight: 600; font-size: 37.5px">
-                  DeityHB                </h1>
+                <h1 class="userLayout1_userDescriptionUsername__ynCxB false" style="font-weight: 600; font-size: 37.5px; position: relative; display: inline-block;">
+                  <span id="discord-username" style="position: relative; z-index: 2; text-shadow: 0 0 0.4em white;">DeityHB</span>
+                  <img src="sparkle_white.gif" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120%; height: 120%; object-fit: contain; z-index: 1; pointer-events: none; mix-blend-mode: screen;">
+                </h1>
                 <div class="userLayout1_badgeContainerWrapper__MV2I1">
-                  <div class="userPage_badgeContainer__uuL3l">
-
-<div class="userPage_badgeContainerFlex__1W_i0">
-              <i class="fa-solid fa-web-awesome"></i>
-          </div>
-<div class="userPage_badgeContainerFlex__1W_i0">
-              <i class="fa-solid fa-mug-saucer"></i>
-          </div>
-<div class="userPage_badgeContainerFlex__1W_i0">
-              <i class="fa-solid fa-code"></i>
-          </div>
-<div class="userPage_badgeContainerFlex__1W_i0">
-              <i class="fa-solid fa-star"></i>
-          </div>
-<div class="userPage_badgeContainerFlex__1W_i0">
-              <i class="fa-solid fa-sack-dollar"></i>
-          </div>
-<div class="userPage_badgeContainerFlex__1W_i0">
-              <i class="fa-solid fa-rocket"></i>
-          </div>  
-  <div class="userPage_badgeContainerFlex__1W_i0">
-              <i class="fa-solid fa-bug-slash"></i>
-          </div>
-                    <div class="userPage_badgeContainerFlex__1W_i0">
+                  <div id="discord-badges" class="userPage_badgeContainer__uuL3l">
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
+                      <i class="fa-solid fa-web-awesome"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Web</div>
+                    </div>
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
+                      <i class="fa-solid fa-mug-saucer"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Coffee</div>
+                    </div>
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
+                      <i class="fa-solid fa-code"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Code</div>
+                    </div>
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
+                      <i class="fa-solid fa-star"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Star</div>
+                    </div>
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
+                      <i class="fa-solid fa-sack-dollar"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Money</div>
+                    </div>
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
+                      <i class="fa-solid fa-rocket"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Rocket</div>
+                    </div>
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
+                      <i class="fa-solid fa-bug-slash"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Bug Slash</div>
+                    </div>
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
                       <i class="fa-solid fa-question"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">Question</div>
                     </div>
-
-                    <div class="userPage_badgeContainerFlex__1W_i0">
+                    <div class="userPage_badgeContainerFlex__1W_i0" style="position: relative;">
                       <i class="fa-solid fa-user"></i>
+                      <div class="badge-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; padding: 4px 8px; background: rgba(0, 0, 0, 0.9); color: #fff; border-radius: 4px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000;">User</div>
                     </div>
-
-
-
-
                   </div>
                 </div>
-                <h3 class="userLayout1_userDescriptionText__grrjO" style="font-weight: 570; font-size: 18px">
+                <h3 class="userLayout1_userDescriptionText__grrjO" style="font-weight: 570; font-size: 18px; color: #fff; position: relative; z-index: 10; margin-top: 10px;">
                   <div class="Typewriter" data-testid="typewriter-wrapper">
                     <span class="Typewriter__wrapper">just a cutiepie</span>
                   </div>
                 </h3>
-                <div id="discord-status" style="margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.7); display: flex; align-items: center; gap: 8px;">
+                <div id="discord-status" style="margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.9); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; position: relative; z-index: 10;">
                   <span id="status-indicator" style="width: 8px; height: 8px; border-radius: 50%; background: #747f8d; display: inline-block;"></span>
-                  <span id="status-text">Offline</span>
-                  <span id="discord-activity" style="margin-left: 5px; font-size: 12px; color: rgba(255, 255, 255, 0.5);"></span>
+                  <span id="status-text" style="color: rgba(255, 255, 255, 0.9);">Offline</span>
+                  <span id="discord-activity" style="margin-left: 5px; font-size: 12px; color: rgba(255, 255, 255, 0.7);"></span>
                 </div>
               </div>
               <div class="userLayout1_socialsWrapper__9yWdO userPage_unfoldStart__cFi88 userPage_unfold__XlZ8v">
@@ -286,7 +195,7 @@
 
         
                     <div class="userPage_userSocial__pqgln userPage_ltc__oGQ_X">
-                <a href="javascript:void(0);" onclick="showDiscordPopup()">
+                <a href="javascript:void(0);" onclick="copyToClipboard('deity_hb')">
                     <i class="fa-brands fa-discord fa-2x"></i>
                 </a>
             </div>
@@ -321,71 +230,91 @@
   <script protect="" src="js/protect.js"></script>
   <script src="js/star.js"></script>
 
-  <div id="discordPopupOverlay" class="discord-popup-overlay" onclick="closeDiscordPopup()">
-    <div class="discord-popup" onclick="event.stopPropagation()">
-      <div class="discord-popup-content">
-        <div class="discord-info-item">
-          <div class="discord-info-label">Username</div>
-          <div class="discord-info-value">deity_hb</div>
-          <button class="discord-copy-btn" onclick="copyToClipboard('deity_hb', this)">
-            <i class="fa-solid fa-copy"></i> Copy
-          </button>
-        </div>
-        <div class="discord-info-item">
-          <div class="discord-info-label">User ID</div>
-          <div class="discord-info-value">1140569210733469726</div>
-          <button class="discord-copy-btn" onclick="copyToClipboard('1140569210733469726', this)">
-            <i class="fa-solid fa-copy"></i> Copy
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    function showDiscordPopup() {
-      document.getElementById('discordPopupOverlay').style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    }
-    
-    function closeDiscordPopup() {
-      document.getElementById('discordPopupOverlay').style.display = 'none';
-      document.body.style.overflow = '';
-    }
-    
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeDiscordPopup();
-      }
-    });
-    
-    function copyToClipboard(text, button) {
+    function copyToClipboard(text) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-
-        const originalText = button.innerHTML;
-        button.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-        button.style.background = 'rgba(76, 175, 80, 0.3)';
-        
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.style.background = '';
-        }, 2000);
+        alert('Successfully copied to the clipboard.');
     }
 
     const DISCORD_ID = '1140569210733469726';
     
-    function updateDiscordStatus() {
+    function getAvatarUrl(userId, avatar, discriminator) {
+      if (!avatar) {
+        const defaultAvatar = discriminator % 5;
+        return `https://cdn.discordapp.com/embed/avatars/${defaultAvatar}.png`;
+      }
+      const isAnimated = avatar.startsWith('a_');
+      return `https://cdn.discordapp.com/avatars/${userId}/${avatar}.${isAnimated ? 'gif' : 'png'}?size=256`;
+    }
+    
+    function getDecorationUrl(userId, decoration) {
+      if (!decoration) return null;
+      return `https://cdn.discordapp.com/avatar-decoration-presets/${decoration}.png?size=256`;
+    }
+    
+    function getBadgeFlags(publicFlags) {
+      const badges = [];
+      if (publicFlags & (1 << 0)) badges.push({ name: 'Staff', icon: 'fa-solid fa-crown' });
+      if (publicFlags & (1 << 1)) badges.push({ name: 'Partner', icon: 'fa-solid fa-handshake' });
+      if (publicFlags & (1 << 2)) badges.push({ name: 'HypeSquad Events', icon: 'fa-solid fa-ticket' });
+      if (publicFlags & (1 << 3)) badges.push({ name: 'Bug Hunter Level 1', icon: 'fa-solid fa-bug' });
+      if (publicFlags & (1 << 6)) badges.push({ name: 'HypeSquad Bravery', icon: 'fa-solid fa-shield' });
+      if (publicFlags & (1 << 7)) badges.push({ name: 'HypeSquad Brilliance', icon: 'fa-solid fa-gem' });
+      if (publicFlags & (1 << 8)) badges.push({ name: 'HypeSquad Balance', icon: 'fa-solid fa-scale-balanced' });
+      if (publicFlags & (1 << 9)) badges.push({ name: 'Early Supporter', icon: 'fa-solid fa-star' });
+      if (publicFlags & (1 << 10)) badges.push({ name: 'Team User', icon: 'fa-solid fa-users' });
+      if (publicFlags & (1 << 12)) badges.push({ name: 'System', icon: 'fa-solid fa-gear' });
+      if (publicFlags & (1 << 14)) badges.push({ name: 'Bug Hunter Level 2', icon: 'fa-solid fa-bug-slash' });
+      if (publicFlags & (1 << 16)) badges.push({ name: 'Verified Bot', icon: 'fa-solid fa-check' });
+      if (publicFlags & (1 << 17)) badges.push({ name: 'Verified Developer', icon: 'fa-solid fa-code' });
+      if (publicFlags & (1 << 18)) badges.push({ name: 'Certified Moderator', icon: 'fa-solid fa-shield-halved' });
+      if (publicFlags & (1 << 19)) badges.push({ name: 'Bot HTTP Interactions', icon: 'fa-solid fa-robot' });
+      if (publicFlags & (1 << 22)) badges.push({ name: 'Active Developer', icon: 'fa-solid fa-laptop-code' });
+      return badges;
+    }
+    
+    function updateDiscordData() {
       fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`)
         .then(response => response.json())
         .then(data => {
           if (data.success && data.data) {
+            const discordUser = data.data.discord_user;
             const status = data.data.discord_status;
             const activities = data.data.activities || [];
+            
+            if (discordUser) {
+              const usernameEl = document.getElementById('discord-username');
+              const avatarEl = document.getElementById('discord-avatar');
+              const decorationEl = document.getElementById('discord-decoration');
+              const bannerEl = document.getElementById('user-banner');
+              
+              const username = discordUser.username || 'DeityHB';
+              const discriminator = discordUser.discriminator || '0';
+              const displayName = discriminator !== '0' ? `${username}#${discriminator}` : username;
+              
+              usernameEl.textContent = displayName;
+              
+              if (discordUser.avatar) {
+                avatarEl.src = getAvatarUrl(DISCORD_ID, discordUser.avatar, parseInt(discriminator));
+              }
+              
+              if (discordUser.banner) {
+                const isAnimated = discordUser.banner.startsWith('a_');
+                bannerEl.src = `https://cdn.discordapp.com/banners/${DISCORD_ID}/${discordUser.banner}.${isAnimated ? 'gif' : 'png'}?size=1024`;
+              }
+              
+              if (discordUser.decoration) {
+                decorationEl.src = getDecorationUrl(DISCORD_ID, discordUser.decoration);
+                decorationEl.style.display = 'block';
+              }
+              
+            }
+            
             const statusIndicator = document.getElementById('status-indicator');
             const statusText = document.getElementById('status-text');
             const activityText = document.getElementById('discord-activity');
@@ -411,21 +340,50 @@
             const gameActivity = activities.find(a => a.type === 0);
             
             if (spotifyActivity) {
-              activityText.textContent = `Spotify: ${spotifyActivity.details || 'Listening to Spotify'}`;
+              const songName = spotifyActivity.details || '';
+              const artistName = spotifyActivity.state || '';
+              activityText.textContent = `🎵 ${songName}${artistName ? ' by ' + artistName : ''}`;
             } else if (gameActivity) {
-              activityText.textContent = ` ${gameActivity.name}`;
+              activityText.textContent = `🎮 ${gameActivity.name}`;
             } else {
               activityText.textContent = '';
             }
           }
         })
         .catch(error => {
-          console.error('Error fetching Discord status:', error);
+          console.error('Error fetching Discord data:', error);
+          const badgeElements = document.querySelectorAll('#discord-badges .userPage_badgeContainerFlex__1W_i0');
+          badgeElements.forEach(badge => {
+            const tooltip = badge.querySelector('.badge-tooltip');
+            if (tooltip) {
+              badge.addEventListener('mouseenter', () => {
+                tooltip.style.opacity = '1';
+              });
+              badge.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = '0';
+              });
+            }
+          });
         });
     }
     
-    updateDiscordStatus();
-    setInterval(updateDiscordStatus, 10000);
+    document.addEventListener('DOMContentLoaded', function() {
+      const badgeElements = document.querySelectorAll('#discord-badges .userPage_badgeContainerFlex__1W_i0');
+      badgeElements.forEach(badge => {
+        const tooltip = badge.querySelector('.badge-tooltip');
+        if (tooltip) {
+          badge.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+          });
+          badge.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+          });
+        }
+      });
+    });
+    
+    updateDiscordData();
+    setInterval(updateDiscordData, 10000);
 </script>
 
 </body>
